@@ -1,0 +1,92 @@
+.reading-page { background: var(--paper-light); }
+.reading-shell { width: min(1180px, calc(100% - 88px)); margin-inline: auto; }
+.reading-hero { min-height: 650px; overflow: hidden; background: var(--deep) url("/assets/ote-cover-background.png") right center / auto 120% no-repeat; color: var(--paper-light); }
+.reading-header { height: 88px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.14); }
+.reading-header > a { font-family: "Iowan Old Style", Georgia, serif; font-size: 21px; text-decoration: none; }
+.reading-header nav { display: flex; gap: 36px; }
+.reading-header nav a { color: rgba(255,255,255,.84); font-size: 14px; text-decoration: none; }
+.reading-hero-inner { display: grid; grid-template-columns: 1fr 440px; gap: 72px; align-items: center; min-height: 562px; padding: 70px 0 90px; }
+.reading-hero h1 { margin: 0; font-family: "Noto Serif SC", "Songti SC", SimSun, serif; font-size: clamp(70px,8vw,110px); font-weight: 500; line-height: 1; }
+.reading-deck { max-width: 650px; margin: 34px 0 0; color: rgba(255,255,255,.85); font-family: "Noto Serif SC", "Songti SC", SimSun, serif; font-size: 20px; line-height: 1.85; }
+.reading-meta { display: flex; gap: 28px; margin-top: 37px; color: var(--gold-soft); font-size: 13px; }
+.reading-meta span { display: inline-flex; align-items: center; gap: 8px; }
+.reading-cover-stack { position: relative; height: 430px; }
+.reading-cover-stack img { position: absolute; top: 25px; width: 195px; box-shadow: -15px 25px 32px rgba(0,0,0,.28); }
+.reading-cover-stack img:nth-child(1) { left: 0; transform: rotate(-4deg) translateY(18px); }
+.reading-cover-stack img:nth-child(2) { left: 115px; z-index: 2; }
+.reading-cover-stack img:nth-child(3) { left: 230px; z-index: 3; transform: rotate(4deg) translateY(18px); }
+.reading-layout { display: grid; grid-template-columns: 260px minmax(0,760px); gap: 92px; justify-content: center; align-items: start; padding: 100px 0 120px; }
+.reading-rail { position: sticky; top: 32px; padding: 24px 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+.reading-rail > p { display: flex; align-items: center; gap: 8px; margin: 0 0 17px; color: #9b7435; font-size: 13px; font-weight: 700; }
+.reading-rail ol { margin: 0; padding: 0; list-style: none; }
+.reading-rail li + li { border-top: 1px solid rgba(23,63,71,.08); }
+.reading-rail li a { display: grid; grid-template-columns: 28px 1fr; gap: 8px; padding: 11px 0; color: #566b67; font-size: 13px; line-height: 1.5; text-decoration: none; }
+.reading-rail li span { color: #aa8140; font-family: Georgia, serif; font-size: 11px; }
+.rail-home { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; color: var(--ink); font-size: 13px; text-decoration: none; }
+.preface-content { min-width: 0; color: #284b50; font-family: "Noto Serif SC", "Songti SC", SimSun, serif; font-size: 17px; line-height: 2.05; letter-spacing: .02em; }
+.preface-content > h1:first-child { margin: 0 0 42px; color: var(--ink); font-size: 42px; }
+.preface-content h2 { scroll-margin-top: 30px; margin: 82px 0 28px; padding-top: 24px; border-top: 1px solid var(--hairline); color: var(--ink); font-size: 30px; line-height: 1.45; }
+.preface-content h3 { margin: 48px 0 20px; color: #315860; font-size: 21px; }
+.preface-content h4 { margin: 30px 0 12px; color: #8f6a2d; font-size: 16px; }
+.preface-content p { margin: 0 0 22px; }
+.preface-content a { color: #8c672c; overflow-wrap: anywhere; word-break: break-word; }
+.preface-content .math.display { display: block; width: 100%; max-width: 100%; margin: 30px 0; padding: 18px 4px; overflow-x: auto; overflow-y: hidden; border-top: 1px solid rgba(23,63,71,.09); border-bottom: 1px solid rgba(23,63,71,.09); text-align: center; }
+.preface-content #refs { margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--hairline); font-family: "Noto Sans SC", sans-serif; font-size: 13px; line-height: 1.7; letter-spacing: 0; }
+.preface-content #refs::before { content: "序言参考文献"; display: block; margin-bottom: 25px; color: var(--ink); font-family: "Noto Serif SC", serif; font-size: 27px; font-weight: 700; }
+.preface-content .csl-entry { margin-bottom: 15px; overflow-wrap: anywhere; }
+.reading-catalogue { padding: 105px 0 125px; border-top: 1px solid var(--hairline); }
+.catalogue-intro { max-width: 720px; margin: 28px 0 55px; color: #5c706c; line-height: 1.85; }
+.catalogue-volumes { display: grid; gap: 65px; }
+.catalogue-volume { border-top: 3px solid var(--teal); }
+.catalogue-volume.accent-copper { border-color: var(--copper); }
+.catalogue-volume.accent-blue { border-color: var(--blue); }
+.catalogue-volume > header { display: grid; grid-template-columns: 70px 1fr; gap: 18px; padding: 28px 0 24px; border-bottom: 1px solid var(--hairline); }
+.catalogue-volume > header > span { color: #9e7737; font-family: Georgia, serif; font-size: 31px; }
+.catalogue-volume h3 { margin: 0; font-family: "Noto Serif SC", serif; font-size: 23px; }
+.catalogue-volume header p { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
+.catalogue-volume details { border-bottom: 1px solid rgba(23,63,71,.11); }
+.catalogue-volume summary { display: grid; grid-template-columns: 42px minmax(0,1fr) auto; gap: 18px; align-items: baseline; padding: 16px 0; cursor: pointer; list-style: none; }
+.catalogue-volume summary::-webkit-details-marker { display: none; }
+.catalogue-volume summary > span { color: #a37b38; font-family: Georgia, serif; font-size: 12px; }
+.catalogue-volume summary strong { font-family: "Noto Serif SC", serif; font-size: 15px; }
+.catalogue-volume summary small { color: var(--muted); font-size: 11px; }
+.catalogue-volume ol { margin: 0; padding: 0 0 14px 60px; list-style: none; }
+.catalogue-volume li { display: grid; grid-template-columns: 48px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid rgba(23,63,71,.07); color: #586d69; font-family: "Noto Serif SC", serif; font-size: 13px; line-height: 1.55; }
+.catalogue-volume li span:first-child { color: #a37b38; font-family: Georgia, serif; font-size: 11px; }
+.reading-cta { padding: 78px 0; background: var(--deep); color: var(--paper-light); }
+.reading-cta > div { display: flex; align-items: center; justify-content: space-between; gap: 45px; }
+.reading-cta h2 { margin: 0; font-family: "Noto Serif SC", serif; font-size: 32px; }
+
+@media (max-width: 900px) {
+  .reading-shell { width: min(100% - 40px, 680px); }
+  .reading-hero-inner { grid-template-columns: 1fr; }
+  .reading-cover-stack { width: 430px; max-width: 100%; }
+  .reading-layout { grid-template-columns: 1fr; gap: 52px; }
+  .reading-rail { position: static; }
+  .reading-rail ol { columns: 2; column-gap: 28px; }
+}
+
+@media (max-width: 620px) {
+  .reading-shell { width: calc(100% - 36px); }
+  .reading-header { height: auto; padding: 22px 0; align-items: flex-start; }
+  .reading-header nav { flex-wrap: wrap; justify-content: flex-end; gap: 12px 18px; }
+  .reading-header nav a { font-size: 12px; }
+  .reading-hero-inner { padding: 68px 0 80px; }
+  .reading-hero h1 { font-size: 65px; }
+  .reading-deck { font-size: 17px; }
+  .reading-meta { flex-direction: column; gap: 11px; }
+  .reading-cover-stack { height: 335px; overflow: hidden; }
+  .reading-cover-stack img { width: 150px; }
+  .reading-cover-stack img:nth-child(2) { left: 82px; }
+  .reading-cover-stack img:nth-child(3) { left: 164px; }
+  .reading-layout { padding: 70px 0 84px; }
+  .reading-rail ol { columns: 1; }
+  .preface-content { font-size: 16px; line-height: 1.95; }
+  .preface-content h2 { font-size: 26px; }
+  .preface-content .math.display { margin-inline: -6px; font-size: .88em; }
+  .reading-catalogue { padding: 78px 0 90px; }
+  .catalogue-volume summary { grid-template-columns: 34px 1fr; }
+  .catalogue-volume summary small { grid-column: 2; }
+  .catalogue-volume ol { padding-left: 46px; }
+  .reading-cta > div { align-items: flex-start; flex-direction: column; }
+}

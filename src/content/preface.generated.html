@@ -1,0 +1,337 @@
+<!-- Generated from frontmatter/preface.tex; source sha256 bf4851121a42. Do not edit. -->
+<h1 class="unnumbered" id="序言">序言</h1>
+<p>经济学经常面对分布，而不只面对均值。消费者分散在不同偏好与收入状态中，工人与企业具有异质能力，居民、岗位和公共设施分布在空间上，风险以不同方式跨主体和时期传递，微观个体的调整又共同形成宏观分布的演化。研究者因此反复遇到同一个基础问题：在给定若干边际分布、资源条件或信息约束之后，哪些主体应当与哪些对象相连，质量应当如何移动，怎样的匹配、价格、路径或随机机制能够实现这一安排，以及从有限数据中能够识别多少结构。</p>
+<p>最优运输为这些问题提供了一套统一而有区分力的语言。给定两个概率测度<span
+class="math inline">\(\mu\)</span>和<span
+class="math inline">\(\nu\)</span>以及局部运输成本<span
+class="math inline">\(c(x,y)\)</span>，Kantorovich问题写成 <span
+class="math display">\[\inf_{\pi\in\Pi(\mu,\nu)}\int c(x,y)\,\pi(\mathrm
+dx,\mathrm dy).\]</span>
+其中，边际分布描述可观察的资源或类型构成，耦合<span
+class="math inline">\(\pi\)</span>描述尚未确定的联合结构，成本或剩余函数记录模型中的技术、偏好、距离、风险或信息损失。这个表达式同时具有规划、概率、几何和经济含义。原问题寻找可行配置，对偶势解释影子价格和支持收益，最优映射刻画确定性排序规则，最优计划容纳随机化与原子障碍，Wasserstein距离把分布集合变成几何空间，动态公式把运输改写为连续时间流动，正则化算法又使高维近似成为可执行计算。</p>
+<p>本书以这条共同结构为主线，建立最优运输的数学理论、计算方法和现代经济学用途。全书采用三部二十五章：第一部给出可反复调用的数理基础，第二部在完整的微观经济环境中说明运输结构如何进入配置、需求、匹配、机制与市场设计，第三部进入统计、结构估计、宏观分布、空间经济、金融和稳健决策。下面先说明这一理论为何值得系统学习，再交代本书的写作立场、使用方式、章节安排和记号规范。</p>
+<h2 class="unnumbered"
+id="从土方搬运到分布几何">从土方搬运到分布几何</h2>
+<p>最优运输的历史起点是一项十分具体的工程问题。Monge在1781年的论文中研究如何把一处挖出的土方搬运到另一处填方位置，并使总运输功最小<span
+class="citation" data-cites="Monge1781">(Monge
+1781)</span>。在现代记号中，他寻找一个映射<span
+class="math inline">\(T\)</span>，要求<span
+class="math inline">\(T_\#\mu=\nu\)</span>，同时最小化<span
+class="math inline">\(\int c(x,T(x))\,\mu(\mathrm
+dx)\)</span>。这个表述直接、几何含义鲜明，却含有两重困难。其一，推前约束使问题具有强非线性；其二，当源分布含有原子、目标分布要求拆分质量或几何正则性不足时，满足条件的映射可能不存在。</p>
+<p>Kantorovich在1942年提出松弛方案，把确定性映射替换为具有给定边际的联合测度。原来的每个单位质量必须被送往单一目的地，松弛后则允许质量按概率或份额拆分。由此形成线性规划结构和对偶价格体系；英文译本后来发表于<em>Management
+Science</em><span class="citation"
+data-cites="Kantorovich1958">(Kantorovitch
+1958)</span>。这一步改变了问题的数学性质，也奠定了经济解释：边际约束类似资源守恒，对偶变量类似稀缺价格，互补松弛说明正质量流只出现在原始成本与对偶价值相接触的位置。有限运输表、网络流、指派问题和连续测度运输因此可以在同一框架中处理。</p>
+<p>二十世纪后半叶，概率论、凸分析、偏微分方程和几何测度论逐步把这一线性规划问题扩展成完整的分析理论。Kantorovich对偶把无限维规划压缩为势函数优化，<span
+class="math inline">\(c\)</span>-循环单调性给出最优支持的局部可检验结构。对二次成本，Brenier的极分解理论表明，在绝对连续等条件下，最优映射由凸函数的梯度给出<span
+class="citation" data-cites="Brenier1991">(Brenier
+1991)</span>；McCann等工作进一步发展了测度保持映射、位移插值和凸势几何<span
+class="citation" data-cites="McCann1995">(McCann
+1995)</span>。最优运输由此同Monge–Ampère方程、凸共轭和正则性理论紧密相连。</p>
+<p>另一个关键转折来自把运输成本视为概率分布之间的距离。当成本为<span
+class="math inline">\(d^p\)</span>时，最优值定义Wasserstein距离<span
+class="math inline">\(W_p\)</span>。概率测度集合不再只是弱收敛的容器，而获得测地线、速度、切向量和曲率式结构。Benamou–Brenier公式把二次Wasserstein距离写成连续性方程约束下的最小动能<span
+class="citation" data-cites="BenamouBrenier2000">(Benamou and Brenier
+2000)</span>；Jordan–Kinderlehrer–Otto离散化则把Fokker–Planck方程解释为熵在Wasserstein空间中的梯度流<span
+class="citation" data-cites="JordanKinderlehrerOtto1998">(Jordan,
+Kinderlehrer, and Otto
+1998)</span>。这一阶段形成了今天所说的“分布几何”：分布之间可以插值，泛函可以沿位移路径具有凸性，扩散、聚集和均衡调整可以通过变分时间步推进。</p>
+<p>计算的发展使最优运输从分析对象进一步变为数据方法。有限线性规划和网络算法提供精确基准，半离散方法利用Laguerre单元处理连续源与离散目标，熵正则化把边际约束转化为矩阵缩放。Cuturi把Sinkhorn迭代引入大规模数据分析后，正则化运输迅速进入机器学习、图像、统计和数值经济学<span
+class="citation" data-cites="Cuturi2013 PeyreCuturi2019">(Cuturi 2013;
+Peyré and Cuturi
+2019)</span>。现代计算理论同时强调两类误差：原问题离散化与统计抽样造成的逼近误差，以及正则化、迭代终止和浮点运算造成的算法误差。可扩展性扩大了应用范围，也要求研究者明确自己计算的是原始最优运输、熵正则问题，还是由两者构造的偏差修正量。</p>
+<p>近年的发展继续放宽经典框架的三项约束。第一，质量守恒可以被软化，非平衡运输允许出生、死亡和强度变化，并同Fisher–Rao型几何结合<span
+class="citation" data-cites="ChizatEtAl2018Dynamic">(Chizat et al.
+2018)</span>。第二，联合分布可以受到额外结构限制，例如多边际一致性、凸序、鞅约束、非预见性和双因果约束，由此产生多边际运输、鞅最优运输与适应性运输。第三，确定性成本最小化可以同随机参考路径和相对熵结合，形成Schrödinger桥、随机控制和小噪声极限<span
+class="citation" data-cites="Leonard2014">(Léonard
+2014)</span>。统计最优运输、逆运输、Wasserstein分布稳健优化、神经或可微运输等方向又把运输问题嵌入估计、学习和决策过程。它们共享边际、耦合与对偶的骨架，却对应不同的可行集、识别条件和近似目标。</p>
+<h2 class="unnumbered"
+id="为什么现代经济学需要最优运输">为什么现代经济学需要最优运输</h2>
+<p>最优运输对经济学的价值首先来自配置与价格的统一。许多经济模型给定主体类型分布、资源分布和一项配对剩余，然后选择一个联合配置。工人分配到岗位、家庭选择地点、消费者购买品质、多个成员组成团队、学生进入学校、患者获得稀缺服务，均可写成边际固定的配置问题。原始最优值回答总体剩余，最优计划回答“谁与谁相连”，对偶势回答各侧收益或价格如何支持这一配置。可转移效用匹配和享乐均衡中的稳定性条件，正对应Kantorovich对偶的接触条件；这类联系已经成为经济学最优运输方法的核心内容<span
+class="citation"
+data-cites="ChiapporiMcCannNesheim2010 Galichon2016">(Chiappori, McCann,
+and Nesheim 2010; Galichon 2016)</span>。</p>
+<p>第二项价值来自排序结构与异质性恢复。一维经济模型可以借助分位数和单调重排描述正向或负向排序；多维类型缺乏天然次序，凸梯度映射、向量秩和循环单调性提供了可操作的推广。它们既能定义多维分位数，也能把观察到的匹配、需求或分配反推为潜在势函数、成本或剩余参数<span
+class="citation"
+data-cites="ChernozhukovGalichonHallinHenry2017 CarlierChernozhukovDeBieGalichon2022">(Chernozhukov
+et al. 2017; Carlier et al.
+2022)</span>。在结构估计中，这种作用尤其重要：研究对象通常不是一个运输距离，而是使观察到的联合分布成为最优计划的经济结构。识别依赖规范化、排除限制、支持变化和模型闭合；数值算法只能在这些条件给定之后求解估计准则。</p>
+<p>第三项价值来自对反事实联合结构的控制。实证研究经常观察若干边际分布，却没有观察潜在结果之间、不同时间状态之间或资产收益之间的完整依赖。所有相容耦合构成一个识别集合，最优运输对偶可给出某个福利、风险或政策泛函的锐界。若再加入凸序、鞅、信息或动态一致性约束，可行集便反映经济理论。模型无关金融利用风险中性边际和鞅条件得到期权价格界与半静态对冲<span
+class="citation"
+data-cites="BeiglbockHenryLaborderePenkner2013">(Beiglböck,
+Henry-Labordère, and Penkner
+2013)</span>；因果与数据融合问题利用多边际耦合表达未共同观察的潜在结果；动态决策则需要适应性距离区分未来信息与当期可用信息。</p>
+<p>第四项价值来自分布状态的动态分析。异质主体宏观、企业动态、城市与迁移模型中的状态变量常是一整个分布。连续性方程描述个体状态运动如何改变总体分布，Fokker–Planck方程加入随机冲击，Wasserstein几何则为分布路径、调整成本和变分算法提供一致结构。这里的运输必须同主体最优化、价格或拥挤外部性、市场清算以及政策规则共同闭合。只写出一组HJB–Fokker–Planck方程，并不能自动构成最优运输模型；真正的增量来自运输几何改变了均衡的表示、存在性论证、比较静态、计算或福利分解。</p>
+<p>第五项价值来自模型风险和稳健决策。经验分布与真实分布存在距离，参考模型也可能错设。以Wasserstein球刻画分布模糊性，可以把“允许多大程度的质量重排”直接写入稳健优化，并通过对偶得到可计算的惩罚或正则项<span
+class="citation"
+data-cites="EsfahaniKuhn2018 BlanchetMurthy2019">(Mohajerin Esfahani and
+Kuhn 2018; Blanchet and Murthy
+2019)</span>。但半径的统计含义、运输成本的经济含义和决策者的信息集必须分别说明。一个方便求解的距离并不自动成为合理的模型误差度量。</p>
+<p>这些用途解释了为什么经济学学习最优运输需要同时掌握原始问题、对偶问题、几何结构和计算实现。仅把<span
+class="math inline">\(W_p\)</span>当作两个样本分布之间的距离，会遗漏价格、稳定性、纯化、识别和动态控制；仅把匹配模型写成一个线性规划，又会遗漏连续类型下的势函数、正则性和统计近似。全书据此把数学最优、经济均衡、经验识别、统计推断、因果解释和福利评价分层陈述。</p>
+<h2 class="unnumbered" id="本书的组织原则">本书的组织原则</h2>
+<p>本书面向经济学、应用数学、统计和运筹学方向的研究生，也可作为需要系统使用最优运输方法的研究者参考。写作中坚持四项原则。</p>
+<p>第一，一般数学结果设置唯一主位置。有限维对偶、紧性、Kantorovich对偶、Brenier映射、Wasserstein几何、动态运输、正则化算法、多边际和受约束运输均在第一部或技术附录中首次完整建立。后续经济章节调用这些结果，并补充经济模型所需的偏好、技术、信息、约束、均衡与福利条件。这样可以避免同一数学定理在不同应用中被反复弱化或改写。</p>
+<p>第二，正式命题写明精确假设。存在、唯一性、纯化、识别、渐近分布、对偶无间隙和算法收敛属于不同层次，它们所需条件也不同。本书不会用数值图形替代理论证明，也不会用一个收敛的程序输出替代经济均衡的存在性。对篇幅过长的高阶定理，正文给出精确版本、可靠来源和本书实际使用的结论。</p>
+<p>第三，计算围绕可验证目标展开。程序说明从离散化、数据结构和目标函数开始，继续到求解器、停止准则、可行性残差、对偶间隙、正则化偏差和统计误差。示例规模足以在普通个人计算机上运行，其目的在于展示如何把理论对象转化为Python计算，而不是只展示最终图形。全书统一脚本入口为<code>python code/run_all_certificates.py</code>；各章代码也可单独执行。</p>
+<p>第四，OT的作用必须在每个经济模型中单独辨认。有些模型的核心是Kantorovich对偶所提供的价格表示，有些依赖凸梯度带来的多维排序，有些利用耦合集得到锐界，有些借助Wasserstein几何组织分布动态，还有一些只把运输当作计算器。经济结论最终仍由主体行为、制度约束和均衡闭合决定。全书在应用章节中明确指出运输结构增加了什么，也指出哪些结论来自原有经济理论。</p>
+<h2 class="unnumbered" id="如何使用本书">如何使用本书</h2>
+<p>第一部第1–3章构成共同入口。读者应先掌握有限运输表、耦合、推前、弱收敛、Kantorovich松弛、对偶和循环单调性。研究连续类型匹配、享乐或向量分位数时，还需要第4章的Brenier理论；研究分布动态、宏观或稳健控制时，需要第5–6章；进行实证或数值工作时，第7章不可跳过。第8–9章集中处理多边际、质量变化、凸序、鞅、信息约束和随机路径，适合在进入相应应用前按需阅读。</p>
+<p>具有较强数学背景的读者可以按第一部顺序学习，再进入第二、三部。经济学读者可以在完成第1–3章后进入第10–13章，用资源配置、需求和匹配建立直觉，再回到第4–9章补充所需工具。实证研究者可以采用“第1–3章–第7章–第18–20章”的路线，同时根据研究模型补读第11–17章。宏观、空间和金融方向可分别采用“第5–6章–第10章–第21–23章”和“第8–9章–第16章–第24–25章”的路线。</p>
+<p>习题与解答紧随每章正文。基础题检查定义、证明和小规模计算；综合题要求连接多个章节；研究题通常给出一条可继续发展的文献或模型方向。建议先独立完成证明，再阅读解答。程序题应同时检查目标值、边际残差、对偶残差和敏感性；只得到与书中相似的图形，不能说明实现正确。</p>
+<p>纸质版分为三卷并保持全书章号连续。第一卷收入第1–9章和技术附录A–E；第二卷收入第10–17章；第三卷收入第18–25章。各卷具有独立目录、参考文献、主题索引和记号索引。电子合订版把三部、二十五章和技术附录置于同一文件中，并保留可点击的跨章引用。纸质卷中的跨卷定理号与电子版完全一致，因而课堂讲授和文献引用可直接使用“第几章、定理几”的稳定编号。</p>
+<h2 class="unnumbered" id="全书章节安排">全书章节安排</h2>
+<h3 class="unnumbered" id="第一部数理基础">第一部：数理基础</h3>
+<h5
+id="第1章有限配置运输多面体与线性规划">第1章：有限配置、运输多面体与线性规划。</h5>
+<p>从有限运输表开始，建立边际约束、运输多面体、极点、整数性、线性规划对偶、互补松弛和网络流。该章提供全书最直观的原始–对偶原型，也说明如何用可行性、目标值和对偶间隙检验离散计算。</p>
+<h5
+id="第2章概率测度kantorovich松弛与一维运输">第2章：概率测度、Kantorovich松弛与一维运输。</h5>
+<p>把有限耦合推广到Polish空间上的概率测度，介绍推前、核、析取、弱收敛和矩条件，严格区分Monge映射与Kantorovich计划。一维部分系统处理分位数、单调重排、共单调与反单调耦合，为风险、需求和分位数方法提供基本工具。</p>
+<h5
+id="第3章最优计划的存在对偶与最优支持">第3章：最优计划的存在、对偶与最优支持。</h5>
+<p>证明耦合集紧性、原问题存在、Kantorovich对偶和接触条件，发展<span
+class="math inline">\(c\)</span>-变换、<span
+class="math inline">\(c\)</span>-次微分与<span
+class="math inline">\(c\)</span>-循环单调性。该章是后续价格势、匹配稳定性、逆运输和识别分析的共同理论核心。</p>
+<h5
+id="第4章twist条件brenier理论与半离散几何">第4章：Twist条件、Brenier理论与半离散几何。</h5>
+<p>研究最优计划何时由映射诱导，证明二次成本下的凸梯度结构，并讨论Jacobian方程、Monge–Ampère接口、高斯运输与正则性。半离散部分引入Laguerre单元和质量方程，为空间配置和Newton算法预备几何基础。</p>
+<h5
+id="第5章wasserstein空间与位移几何">第5章：Wasserstein空间与位移几何。</h5>
+<p>建立<span
+class="math inline">\(W_p\)</span>距离、拓扑、测地线、位移插值、重心入口和位移凸性。重点解释概率分布何以形成可微分式的度量空间，以及这一几何如何影响泛函不等式、稳定性和分布比较。</p>
+<h5
+id="第6章动态最优运输与wasserstein梯度流">第6章：动态最优运输与Wasserstein梯度流。</h5>
+<p>从连续性方程和Benamou–Brenier公式出发，介绍度量导数、速度场、超位置原理、Fokker–Planck方程与JKO离散化。该章连接确定性流体运输、扩散过程和分布状态的变分动态。</p>
+<h5
+id="第7章计算最优运输算法正则化与误差">第7章：计算最优运输：算法、正则化与误差。</h5>
+<p>在有限算法基础上系统处理网络方法、Sinkhorn迭代、对数稳定化、Bregman投影、半离散Newton法、自动微分和大规模近似。每类算法都配套讨论可行性残差、对偶间隙、正则化偏差、停止准则与数值稳定性。</p>
+<h5 id="第8章多边际重心与质量变化">第8章：多边际、重心与质量变化。</h5>
+<p>把二边际运输推广到多个分布，研究多边际存在、对偶、结构条件和Wasserstein重心；随后引入部分运输、非平衡运输与Wasserstein–Fisher–Rao型几何，为团队形成、分布聚合和进入退出提供工具。</p>
+<h5 id="第9章受约束运输与随机路径">第9章：受约束运输与随机路径。</h5>
+<p>讨论凸序、Strassen定理、鞅最优运输、弱运输、因果与双因果耦合、适应性距离以及Schrödinger问题。该章把边际约束同信息、时间和随机路径约束结合，是金融、动态因果、随机控制和稳健决策的数学入口。</p>
+<h3 class="unnumbered" id="第二部微观经济基础">第二部：微观经济基础</h3>
+<h5
+id="第10章资源配置对偶价格与福利">第10章：资源配置、对偶价格与福利。</h5>
+<p>建立主体、资源、技术、规划问题、支持价格、分散化和福利评价的共同基准。有限与连续运输对偶在这里被解释为影子价格和收益分解，容量、外部选项和政策约束进入统一的价值函数框架。</p>
+<h5 id="第11章选择显示偏好与需求">第11章：选择、显示偏好与需求。</h5>
+<p>从个体选择和准线性需求出发，连接Afriat型理性化、循环单调性、凸势恢复、随机效用和份额反演。章节强调观察到的选择、可积性、效用规范化与统计识别之间的差异。</p>
+<h5 id="第12章匹配排序与指派博弈">第12章：匹配、排序与指派博弈。</h5>
+<p>研究可转移效用双边匹配、稳定配置、正向排序、离散指派博弈和连续类型匹配。运输对偶给出双方收益，超模性和twist条件决定排序与纯化，随机匹配与正则化为估计预备接口。</p>
+<h5 id="第13章品质区位与空间均衡">第13章：品质、区位与空间均衡。</h5>
+<p>把享乐市场、品质选择、居住区位、设施容量和静态空间均衡置于“属性–主体–价格势”结构中。凸势和Laguerre几何用于恢复类型分区，价格包络与市场清算完成经济闭合。</p>
+<h5
+id="第14章团队形成生产组织与多边际匹配">第14章：团队形成、生产组织与多边际匹配。</h5>
+<p>研究多个生产要素或成员共同形成团队的多边际配置，讨论互补性、跨度控制、管理层级、生产网络和多侧收益分摊。章节辨认二边际排序结论何时失效，以及多边际结构带来的识别和计算困难。</p>
+<h5
+id="第15章筛选非线性定价与机制设计">第15章：筛选、非线性定价与机制设计。</h5>
+<p>从激励相容和参与约束出发，建立多维筛选、配置的循环单调性、支付恢复、垄断者目标和对偶表示。OT在这里承担理性化配置和构造势函数的作用，机制的收入与福利结论仍由完整的激励环境决定。</p>
+<h5 id="第16章风险分担保险与信息">第16章：风险分担、保险与信息。</h5>
+<p>研究风险配置、共单调性、凸序、保险合约、聚合风险、信息设计和依赖不确定性。多边际与鞅结构用于刻画可行风险分担，重排不等式和锐界用于福利与风险度量。</p>
+<h5
+id="第17章市场设计与公共资源配置">第17章：市场设计与公共资源配置。</h5>
+<p>处理无转移稳定匹配、优先级、随机分配、学校选择、公共设施与稀缺服务配置。章节区分稳定性、策略性质、公平、效率和可实施性，并说明离散运输与网络结构在制度设计中的精确作用。</p>
+<h3 class="unnumbered" id="第三部经济学应用">第三部：经济学应用</h3>
+<h5
+id="第18章多维秩向量分位数与统计最优运输">第18章：多维秩、向量分位数与统计最优运输。</h5>
+<p>从总体参考分布、Brenier映射和经验指派定义多维秩与向量分位数，进一步研究向量分位数回归、样本算法、正则化和非光滑推断。重点区分统计对象、坐标规范和计算近似。</p>
+<h5 id="第19章逆最优运输与结构估计">第19章：逆最优运输与结构估计。</h5>
+<p>把成本、剩余或对偶势设为未知对象，由观察到的匹配、选择和流量反推结构参数。章节讨论规范化、观察等价、点识别与集合识别、矩条件、似然、熵平滑、自动微分和数值误差传播。</p>
+<h5
+id="第20章数据融合部分识别与因果运输">第20章：数据融合、部分识别与因果运输。</h5>
+<p>研究只观察边际或不同样本信息时的联合分布恢复，利用Fréchet类、多边际运输和对偶给出反事实与福利的锐界。潜在结果因果含义同第9章的非预见性“因果耦合”严格区分，政策分配还需结合容量和公平约束。</p>
+<h5
+id="第21章分布宏观经济学与异质主体">第21章：分布宏观经济学与异质主体。</h5>
+<p>把财富、生产率、地区或其他微观状态的总体分布作为宏观状态变量，连接个体HJB、Fokker–Planck方程、价格清算和社会福利。Wasserstein几何用于分布路径、数值离散、稳定性和政策变化的结构化比较。</p>
+<h5
+id="第22章企业动态结构转型与生产网络">第22章：企业动态、结构转型与生产网络。</h5>
+<p>研究企业生产率分布、进入退出、要素重配、团队组织、产业转型和投入产出网络。多边际与非平衡运输刻画企业间配置和质量变化，均衡价格与动态选择决定运输对象的经济含义。</p>
+<h5 id="第23章空间宏观贸易与迁移">第23章：空间宏观、贸易与迁移。</h5>
+<p>从地区人口和生产分布出发，研究贸易流、通勤、迁移、基础设施和长期空间反事实。半离散几何、熵算法与动态运输服务于容量清算、流量估计和路径调整，OT增量在每个模型中单独检验。</p>
+<h5
+id="第24章鞅最优运输与模型无关金融">第24章：鞅最优运输与模型无关金融。</h5>
+<p>由资产与期权价格恢复风险中性边际，在无套利鞅约束下求取衍生品价格界。原始问题对相容路径法律优化，对偶由静态期权和动态交易构成；章节同时讨论校准、离散化、对冲误差和多期扩展。</p>
+<h5
+id="第25章适应性运输随机控制与分布稳健决策">第25章：适应性运输、随机控制与分布稳健决策。</h5>
+<p>综合因果与双因果耦合、适应性Wasserstein距离、Schrödinger桥、随机控制和Wasserstein分布稳健优化。章节处理信息时序、参考模型、模糊集半径、时间一致性、政策规则和样本外评价，是全书从运输理论通向动态决策的收束。</p>
+<p>技术附录A–E分别集中处理有限维凸几何与线性规划、弱收敛与紧性、凸分析与变分工具、概率核与随机化、连续时间路径与随机分析。正文首次调用这些结果时给出稳定标签，读者可以按需回查。</p>
+<h2 class="unnumbered" id="记号约定">记号约定</h2>
+<p>若无特别说明，<span
+class="math inline">\(X,Y,Z\)</span>表示度量空间或Polish空间，<span
+class="math inline">\(\mathcal B(X)\)</span>为Borel <span
+class="math inline">\(\sigma\)</span>-代数，<span
+class="math inline">\(\mathcal P(X)\)</span>和<span
+class="math inline">\(\mathcal
+P_p(X)\)</span>分别表示Borel概率测度及具有有限<span
+class="math inline">\(p\)</span>阶矩的概率测度。有限非负测度集合在需要时写作<span
+class="math inline">\(\mathcal M_+(X)\)</span>。测度的弱收敛记为<span
+class="math inline">\(\mu_n\Rightarrow\mu\)</span>；当同时控制<span
+class="math inline">\(p\)</span>阶矩时，<span
+class="math inline">\(W_p(\mu_n,\mu)\to0\)</span>表示Wasserstein收敛。</p>
+<p>映射<span class="math inline">\(T:X\to Y\)</span>对测度<span
+class="math inline">\(\mu\)</span>的推前记为<span
+class="math inline">\(T_\#\mu\)</span>。坐标投影通常写作<span
+class="math inline">\(p_X,p_Y\)</span>或<span
+class="math inline">\(p_i\)</span>。具有边际<span
+class="math inline">\(\mu,\nu\)</span>的耦合集记为<span
+class="math inline">\(\Pi(\mu,\nu)\)</span>，最优计划集合写作<span
+class="math inline">\(\Pi_{\mathrm{opt}}(\mu,\nu)\)</span>。多边际耦合集写作<span
+class="math inline">\(\Pi(\mu_1,\ldots,\mu_m)\)</span>。概率核写作<span
+class="math inline">\(K(x,\mathrm
+dy)\)</span>，由边际与核生成的联合测度写作<span
+class="math inline">\(\mu\otimes
+K\)</span>；条件法律和析取在各章按其信息结构明确说明。</p>
+<p>成本最小化采用<span
+class="math inline">\(c\)</span>，剩余最大化通常采用<span
+class="math inline">\(s=-c\)</span>。Kantorovich对偶势写作<span
+class="math inline">\(\varphi,\psi\)</span>；凸分析中的函数及共轭写作<span
+class="math inline">\(u,u^*\)</span>；<span
+class="math inline">\(c\)</span>-变换写作<span
+class="math inline">\(\varphi^c\)</span>。经济学中的效用、工资、利润、价格和转移支付按模型另行定义，避免同一符号跨层次混用。内积写作<span
+class="math inline">\(\langle x,y\rangle\)</span>，欧氏范数写作<span
+class="math inline">\(\lVert
+x\rVert\)</span>，梯度、Jacobian和Hessian分别写作<span
+class="math inline">\(\nabla f\)</span>、<span
+class="math inline">\(Df\)</span>和<span
+class="math inline">\(D^2f\)</span>。矩阵半正定次序写作<span
+class="math inline">\(A\succeq0\)</span>。</p>
+<p><span class="math inline">\(W_p\)</span>表示<span
+class="math inline">\(p\)</span>阶Wasserstein距离。相对熵写作<span
+class="math inline">\(H(P\mid R)\)</span>或<span
+class="math inline">\(D_{\mathrm{KL}}(P\Vert R)\)</span>。凸序写作<span
+class="math inline">\(\mu\preceq_{\mathrm{cx}}\nu\)</span>。路径空间中的评价映射记为<span
+class="math inline">\(e_t\)</span>，过滤信息写作<span
+class="math inline">\((\mathcal
+F_t)_{t\ge0}\)</span>。连续性方程中的密度和速度场常写作<span
+class="math inline">\(\rho_t,v_t\)</span>；随机过程和控制在相应章节中另行定义。</p>
+<p>经验测度通常写作<span
+class="math inline">\(\widehat\mu_n=n^{-1}\sum_{i=1}^n\delta_{X_i}\)</span>。总体对象、样本估计量、正则化对象和数值近似使用不同记号；若章节采用上标<span
+class="math inline">\(\varepsilon\)</span>表示熵正则参数、下标<span
+class="math inline">\(h\)</span>表示网格尺度或上标<span
+class="math inline">\(N\)</span>表示离散规模，均在首次出现时说明。<span
+class="math inline">\(O(\cdot)\)</span>与<span
+class="math inline">\(o(\cdot)\)</span>的概率版本写作<span
+class="math inline">\(O_p(\cdot)\)</span>与<span
+class="math inline">\(o_p(\cdot)\)</span>。</p>
+<p>定理、命题、引理、推论、定义、假设、例和评注按章连续编号；附录按字母编号。纸质三卷保持全书章号连续。公式中的等号可能表示数学恒等、模型约束、均衡条件或估计方程，其语义由上下文明确。数学最优、经济均衡、识别集合、统计推断、因果解释和福利评价分别陈述，不由同一“最优”措辞代替。</p>
+<h2 class="unnumbered" id="结语">结语</h2>
+<p>最优运输的持久生命力来自一个简单而广泛的问题：边际给定时，联合结构如何形成。两百多年来，这个问题先后进入几何、线性规划、概率、偏微分方程、度量几何、统计与计算。经济学又为它增加了价格、激励、信息、均衡和福利含义。学习这一理论的目标，因而不只在于掌握若干距离或算法，而在于获得一种能够在分布、配置和动态之间切换的建模能力：知道哪些对象被固定，哪些联合关系仍待决定，什么条件支持最优性，数据能够识别什么，以及计算结果如何接受理论和数值检验。</p>
+<p>本书希望提供完成这种切换所需的共同基础。读者可以从土方搬运的几何直觉出发，经过Kantorovich对偶、凸势与Wasserstein空间，最终进入匹配、结构估计、分布宏观、空间流动、金融和稳健决策。三部内容之间的联系由同一运输结构维系，各章的经济边界又保持清楚。由此，最优运输可以成为一门可证明、可计算、可估计并能够承担经济解释的理论工具。</p>
+<h1 class="unnumbered" id="bibliography">序言参考文献</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-BeiglbockHenryLaborderePenkner2013" class="csl-entry"
+role="doc-biblioentry">
+Beiglböck, Mathias, Pierre Henry-Labordère, and Friedrich Penkner. 2013.
+<span>“Model-Independent Bounds for Option Prices—a Mass Transport
+Approach.”</span> <em>Finance and Stochastics</em> 17 (3): 477–501. <a
+href="https://doi.org/10.1007/s00780-013-0205-8">https://doi.org/10.1007/s00780-013-0205-8</a>.
+</div>
+<div id="ref-BenamouBrenier2000" class="csl-entry"
+role="doc-biblioentry">
+Benamou, Jean-David, and Yann Brenier. 2000. <span>“A Computational
+Fluid Mechanics Solution to the Monge–Kantorovich Mass Transfer
+Problem.”</span> <em>Numerische Mathematik</em> 84 (3): 375–93. <a
+href="https://doi.org/10.1007/s002110050002">https://doi.org/10.1007/s002110050002</a>.
+</div>
+<div id="ref-BlanchetMurthy2019" class="csl-entry"
+role="doc-biblioentry">
+Blanchet, Jose, and Karthyek Murthy. 2019. <span>“Quantifying
+Distributional Model Risk via Optimal Transport.”</span> <em>Mathematics
+of Operations Research</em> 44 (2): 565–600. <a
+href="https://doi.org/10.1287/moor.2018.0936">https://doi.org/10.1287/moor.2018.0936</a>.
+</div>
+<div id="ref-Brenier1991" class="csl-entry" role="doc-biblioentry">
+Brenier, Yann. 1991. <span>“Polar Factorization and Monotone
+Rearrangement of Vector-Valued Functions.”</span> <em>Communications on
+Pure and Applied Mathematics</em> 44 (4): 375–417. <a
+href="https://doi.org/10.1002/cpa.3160440402">https://doi.org/10.1002/cpa.3160440402</a>.
+</div>
+<div id="ref-CarlierChernozhukovDeBieGalichon2022" class="csl-entry"
+role="doc-biblioentry">
+Carlier, Guillaume, Victor Chernozhukov, Gwendoline De Bie, and Alfred
+Galichon. 2022. <span>“Vector Quantile Regression and Optimal Transport,
+from Theory to Numerics.”</span> <em>Empirical Economics</em> 62: 35–62.
+<a
+href="https://doi.org/10.1007/s00181-020-01919-y">https://doi.org/10.1007/s00181-020-01919-y</a>.
+</div>
+<div id="ref-ChernozhukovGalichonHallinHenry2017" class="csl-entry"
+role="doc-biblioentry">
+Chernozhukov, Victor, Alfred Galichon, Marc Hallin, and Marc Henry.
+2017. <span>“Monge–Kantorovich Depth, Quantiles, Ranks and
+Signs.”</span> <em>The Annals of Statistics</em> 45 (1): 223–56. <a
+href="https://doi.org/10.1214/16-AOS1450">https://doi.org/10.1214/16-AOS1450</a>.
+</div>
+<div id="ref-ChiapporiMcCannNesheim2010" class="csl-entry"
+role="doc-biblioentry">
+Chiappori, Pierre-André, Robert J. McCann, and Lars P. Nesheim. 2010.
+<span>“Hedonic Price Equilibria, Stable Matching, and Optimal Transport:
+Equivalence, Topology, and Uniqueness.”</span> <em>Economic Theory</em>
+42 (2): 317–54. <a
+href="https://doi.org/10.1007/s00199-009-0455-z">https://doi.org/10.1007/s00199-009-0455-z</a>.
+</div>
+<div id="ref-ChizatEtAl2018Dynamic" class="csl-entry"
+role="doc-biblioentry">
+Chizat, Lénaïc, Gabriel Peyré, Bernhard Schmitzer, and François-Xavier
+Vialard. 2018. <span>“Unbalanced Optimal Transport: Dynamic and
+<span>Kantorovich</span> Formulations.”</span> <em>Journal of Functional
+Analysis</em> 274 (11): 3090–3123. <a
+href="https://doi.org/10.1016/j.jfa.2018.03.008">https://doi.org/10.1016/j.jfa.2018.03.008</a>.
+</div>
+<div id="ref-Cuturi2013" class="csl-entry" role="doc-biblioentry">
+Cuturi, Marco. 2013. <span>“Sinkhorn Distances: Lightspeed Computation
+of Optimal Transport.”</span> In <em>Advances in Neural Information
+Processing Systems 26</em>, 2292–2300.
+</div>
+<div id="ref-Galichon2016" class="csl-entry" role="doc-biblioentry">
+Galichon, Alfred. 2016. <em>Optimal Transport Methods in Economics</em>.
+Princeton, NJ: Princeton University Press. <a
+href="https://doi.org/10.23943/princeton/9780691172767.001.0001">https://doi.org/10.23943/princeton/9780691172767.001.0001</a>.
+</div>
+<div id="ref-JordanKinderlehrerOtto1998" class="csl-entry"
+role="doc-biblioentry">
+Jordan, Richard, David Kinderlehrer, and Felix Otto. 1998. <span>“The
+Variational Formulation of the <span>Fokker–Planck</span>
+Equation.”</span> <em>SIAM Journal on Mathematical Analysis</em> 29 (1):
+1–17. <a
+href="https://doi.org/10.1137/S0036141096303359">https://doi.org/10.1137/S0036141096303359</a>.
+</div>
+<div id="ref-Kantorovich1958" class="csl-entry" role="doc-biblioentry">
+Kantorovitch, L. 1958. <span>“On the Translocation of Masses.”</span>
+<em>Management Science</em> 5 (1): 1–4. <a
+href="https://doi.org/10.1287/mnsc.5.1.1">https://doi.org/10.1287/mnsc.5.1.1</a>.
+</div>
+<div id="ref-Leonard2014" class="csl-entry" role="doc-biblioentry">
+Léonard, Christian. 2014. <span>“A Survey of the <span
+class="nocase">Schr<span class="nocase">ö</span>dinger</span> Problem
+and Some of Its Connections with Optimal Transport.”</span> <em>Discrete
+and Continuous Dynamical Systems</em> 34 (4): 1533–74. <a
+href="https://doi.org/10.3934/dcds.2014.34.1533">https://doi.org/10.3934/dcds.2014.34.1533</a>.
+</div>
+<div id="ref-McCann1995" class="csl-entry" role="doc-biblioentry">
+McCann, Robert J. 1995. <span>“Existence and Uniqueness of Monotone
+Measure-Preserving Maps.”</span> <em>Duke Mathematical Journal</em> 80
+(2): 309–23. <a
+href="https://doi.org/10.1215/S0012-7094-95-08013-2">https://doi.org/10.1215/S0012-7094-95-08013-2</a>.
+</div>
+<div id="ref-EsfahaniKuhn2018" class="csl-entry" role="doc-biblioentry">
+Mohajerin Esfahani, Peyman, and Daniel Kuhn. 2018. <span>“Data-Driven
+Distributionally Robust Optimization Using the Wasserstein Metric:
+Performance Guarantees and Tractable Reformulations.”</span>
+<em>Mathematical Programming</em> 171 (1–2): 115–66. <a
+href="https://doi.org/10.1007/s10107-017-1172-1">https://doi.org/10.1007/s10107-017-1172-1</a>.
+</div>
+<div id="ref-Monge1781" class="csl-entry" role="doc-biblioentry">
+Monge, Gaspard. 1781. <em>M<span>é</span>moire Sur La
+Th<span>é</span>orie Des d<span>é</span>blais Et Des Remblais</em>.
+Paris: Imprimerie Royale.
+</div>
+<div id="ref-PeyreCuturi2019" class="csl-entry" role="doc-biblioentry">
+Peyré, Gabriel, and Marco Cuturi. 2019. <span>“Computational Optimal
+Transport.”</span> <em>Foundations and Trends in Machine Learning</em>
+11 (5–6): 355–607. <a
+href="https://doi.org/10.1561/2200000073">https://doi.org/10.1561/2200000073</a>.
+</div>
+</div>

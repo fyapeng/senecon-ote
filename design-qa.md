@@ -48,3 +48,37 @@ P3 — The generated book specimen retains a very subtle rectangular paper field
 - [x] Production build and Sites packaging check
 
 final result: passed
+
+## Three-volume editorial redesign · 2026-08-02
+
+- Source visual truth: `E:\StructuralEstimation\site\implementation-hero-actions.png`, the published `senecon-see` editorial family selected by the user.
+- Desktop implementation: `E:\senecon-ote\implementation-home-desktop.png`
+- Mobile implementation: `E:\senecon-ote\implementation-home-mobile.png`
+- Preface mobile implementation: `E:\senecon-ote\implementation-preface-mobile.png`
+- Code mobile implementation: `E:\senecon-ote\implementation-code-mobile.png`
+- Same-state comparison: `E:\senecon-ote\design-qa-comparison-redesign.png`
+- Viewports: 1280 × 900 desktop and 390 × 844 mobile, device scale 1. The source and desktop implementation are normalized side by side at their native aspect ratios.
+- State: public top-of-page hero; mobile navigation tested closed and open.
+
+### Findings and comparison history
+
+- Pass 1 adaptation: the source design presented one upright textbook beside a paper curve. OTE requires three visible volumes, so the right-hand product field was intentionally widened and the paper transition was deferred below the 900 px hero. This changes the source proportion but preserves its hierarchy, palette, actions, editorial type, and product-first composition.
+- Post-fix result: three authoritative PDF cover renders are individually legible and overlap as a set without clipping. The hero retains the gold primary action, paper-white reading action, deep-teal field, serif title, restrained metadata, and responsive menu of the source family.
+- No actionable P0, P1, or P2 mismatch remains.
+
+### Required fidelity surfaces
+
+- Fonts and typography: Noto Serif SC carries Chinese display and reading text; the existing sans and Georgia/Iowan-style stacks carry navigation and English metadata. Mobile wrapping remains deliberate and unclipped.
+- Spacing and layout rhythm: desktop uses a two-column hero with a dedicated three-volume stage; mobile stacks copy, actions, and the cover set with zero document overflow.
+- Colors and tokens: deep navy-teal, warm paper, gold, and volume-specific teal/copper/blue accents come directly from the book covers and the sibling site.
+- Image quality and asset fidelity: all three covers are rendered from page 1 of the authoritative compiled PDFs at 1200 px width. No placeholder, CSS-drawn cover, or generic single-book substitute remains.
+- Copy and content: three volumes, 2024 pages, 25 chapters, 753/630/675 page counts, PDF filenames, code coverage for chapters 6–25, and the complete preface are source-grounded.
+
+### Browser and interaction checks
+
+- Homepage: three cover assets, three volume cards, combined-PDF action, responsive menu open/close, and zero overflow.
+- Preface: seven sections, 130 MathJax containers, zero math errors, 25 chapter disclosures, 222 section-level entries, and zero overflow.
+- Code: 20 chapter directories beginning at `code/ch06/`, source-package download, and zero overflow.
+- Production build and four Sites packaging tests pass.
+
+final result: passed
