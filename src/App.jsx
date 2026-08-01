@@ -137,7 +137,7 @@ function Resources() {
   return (
     <section className="resources-section page-shell" aria-labelledby="resources-title">
       <div className="section-heading-row">
-        <div><p className="eyebrow eyebrow-dark">Code · Guide · Updates</p><h2 id="resources-title">配套代码与更新</h2></div>
+        <div><p className="eyebrow eyebrow-dark">Texts · Code · Updates</p><h2 id="resources-title">教材与配套材料</h2></div>
         <p>三卷教材 PDF 与配套代码按 v2.1 发布；LaTeX 源码和构建文件不公开下载。</p>
       </div>
       <div className="resource-grid">
