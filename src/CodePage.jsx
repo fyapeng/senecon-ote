@@ -3,7 +3,7 @@ import { codeIndex, volumes } from "./content/book.generated.js";
 
 const base = import.meta.env.BASE_URL;
 const repositoryUrl = "https://github.com/fyapeng/senecon-ote";
-const codeZip = "https://github.com/fyapeng/senecon-ote/releases/download/v2.1/OTE_companion_code_v2.1.zip";
+const codeZip = "https://github.com/fyapeng/senecon-ote/releases/download/v2.1/SenEcon-OTE-Companion-Code-v2.1.zip";
 const chapterMap = new Map(volumes.flatMap((volume) => volume.chapters.map((chapter) => [chapter.number, { ...chapter, volume }])));
 
 function Header() {

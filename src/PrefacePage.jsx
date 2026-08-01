@@ -4,7 +4,7 @@ import { bookMeta, volumes } from "./content/book.generated.js";
 import prefaceHtml from "./content/preface.generated.html?raw";
 
 const base = import.meta.env.BASE_URL;
-const combinedPdf = "https://github.com/fyapeng/senecon-ote/releases/download/v2.1/BOOK_OT_complete_electronic_v2.1.pdf";
+const releaseBase = "https://github.com/fyapeng/senecon-ote/releases/download/v2.1";
 const readingSections = [
   ["从土方搬运到分布几何", "从土方搬运到分布几何"],
   ["为什么现代经济学需要最优运输", "为什么现代经济学需要最优运输"],
@@ -75,7 +75,7 @@ export function PrefacePage() {
         <article className="preface-content" dangerouslySetInnerHTML={{ __html: prefaceHtml }} />
       </div>
       <Catalogue />
-      <section className="reading-cta"><div className="reading-shell"><div><p className="eyebrow">2024 页电子版</p><h2>需要完整证明、习题与附录？</h2></div><a className="button button-gold" href={combinedPdf}><DownloadSimple size={23} /> 下载三卷合订版</a></div></section>
+      <section className="reading-cta"><div className="reading-shell"><div><p className="eyebrow">v2.1 · 三卷电子版</p><h2>继续阅读完整证明、习题与附录</h2></div><div className="reading-volume-downloads">{volumes.map((volume) => <a className="button button-gold" key={volume.number} href={`${releaseBase}/${volume.file}`}><DownloadSimple size={21} /> 下载第 {volume.number} 卷</a>)}</div></div></section>
     </main>
   );
 }

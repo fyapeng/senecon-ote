@@ -56,6 +56,7 @@
 .reading-cta { padding: 78px 0; background: var(--deep); color: var(--paper-light); }
 .reading-cta > div { display: flex; align-items: center; justify-content: space-between; gap: 45px; }
 .reading-cta h2 { margin: 0; font-family: "Noto Serif SC", serif; font-size: 32px; }
+.reading-volume-downloads { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; }
 
 @media (max-width: 900px) {
   .reading-shell { width: min(100% - 40px, 680px); }
@@ -89,4 +90,5 @@
   .catalogue-volume summary small { grid-column: 2; }
   .catalogue-volume ol { padding-left: 46px; }
   .reading-cta > div { align-items: flex-start; flex-direction: column; }
+  .reading-volume-downloads { justify-content: flex-start; }
 }

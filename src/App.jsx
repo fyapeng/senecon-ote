@@ -3,7 +3,9 @@ import {
   ArrowRight,
   BookOpenText,
   BracketsCurly,
+  Copyright,
   DownloadSimple,
+  FilePdf,
   GithubLogo,
   List,
   Stack,
@@ -15,7 +17,8 @@ import { bookMeta, volumes } from "./content/book.generated.js";
 const base = import.meta.env.BASE_URL;
 const releaseBase = "https://github.com/fyapeng/senecon-ote/releases/download/v2.1";
 const repositoryUrl = "https://github.com/fyapeng/senecon-ote";
-const codeZip = `${releaseBase}/OTE_companion_code_v2.1.zip`;
+const codeZip = `${releaseBase}/SenEcon-OTE-Companion-Code-v2.1.zip`;
+const volumePdf = (file) => `${releaseBase}/${file}`;
 
 const assetUrl = (name) => `${base}assets/${name}`;
 const volumeCover = (number) => assetUrl(`ote-volume-${number}-cover.png`);
@@ -60,7 +63,8 @@ function Hero() {
           <p className="hero-summary">从测度、耦合与对偶出发，连接计算、配置、识别与分布动态。</p>
           <div className="hero-actions">
             <a className="button button-gold" href={codeZip}><DownloadSimple size={25} /> 下载配套代码</a>
-            <a className="button button-paper" href={`${base}preface/`}><BookOpenText size={24} /> 阅读序言</a>
+            <a className="button button-paper" href="#volumes"><FilePdf size={24} /> 下载分卷 PDF</a>
+            <a className="hero-reading-link" href={`${base}preface/`}><BookOpenText size={20} /> 阅读序言</a>
           </div>
         </div>
         <div className="volume-stage" aria-label="《最优运输理论》三卷封面">
@@ -78,9 +82,10 @@ function VersionStrip() {
     <section className="version-section page-shell" id="version" aria-labelledby="version-title">
       <div className="section-kicker"><span /><h2 id="version-title">版本信息</h2></div>
       <div className="version-strip">
-        <div><Stack size={28} /><p><span>出版结构</span><strong>三卷 · 2026</strong></p></div>
+        <div><Stack size={28} /><p><span>当前版本</span><strong>v2.1 · 2026-08-02</strong></p></div>
         <div><BookOpenText size={29} /><p><span>教材规模</span><strong>{bookMeta.pages} 页</strong></p></div>
         <div><List size={29} /><p><span>内容结构</span><strong>{bookMeta.chapters} 章 · 附录 A–E</strong></p></div>
+        <div><Copyright size={29} /><p><span>使用许可</span><strong><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans" target="_blank" rel="noreferrer">CC BY-NC 4.0</a></strong></p></div>
       </div>
     </section>
   );
@@ -117,7 +122,7 @@ function VolumeSection() {
                 <h3>{volume.title}</h3>
                 <p>{volume.english}</p>
                 <p>第 {volume.chapters[0].number}–{volume.chapters.at(-1).number} 章 · {volume.chapters.length} 章</p>
-                <a href={`${base}preface/#contents`}>查看本卷目录 <ArrowRight size={18} /></a>
+                <div className="volume-links"><a href={volumePdf(volume.file)}><DownloadSimple size={18} /> 下载本卷 PDF</a><a href={`${base}preface/#contents`}>查看本卷目录 <ArrowRight size={18} /></a></div>
               </div>
             </article>
           ))}
@@ -133,10 +138,11 @@ function Resources() {
     <section className="resources-section page-shell" aria-labelledby="resources-title">
       <div className="section-heading-row">
         <div><p className="eyebrow eyebrow-dark">Code · Guide · Updates</p><h2 id="resources-title">配套代码与更新</h2></div>
-        <p>公开下载仅包含配套代码；序言、完整目录和代码使用方法均可直接在网页阅读。</p>
+        <p>三卷教材 PDF 与配套代码按 v2.1 发布；LaTeX 源码和构建文件不公开下载。</p>
       </div>
       <div className="resource-grid">
         <article><BracketsCurly size={34} /><h3>配套代码包</h3><p>Python 程序、依赖说明、章节数值证书与统一运行器。</p><a href={codeZip}>下载代码 <ArrowRight size={18} /></a></article>
+        <article><FilePdf size={34} /><h3>分卷教材 PDF</h3><p>三卷分别下载，文件名统一包含项目、卷次、英文副标题和版本号。</p><a href="#volumes">选择分卷 <ArrowRight size={18} /></a></article>
         <article><BookOpenText size={34} /><h3>使用说明</h3><p>查看安装、运行、按章查找以及结果核对方法。</p><a href={`${base}code/`}>阅读代码指南 <ArrowRight size={18} /></a></article>
         <article><GithubLogo size={34} /><h3>勘误与更新</h3><p>查看网站与配套材料的版本记录和后续修订。</p><a href={repositoryUrl} target="_blank" rel="noreferrer">访问 GitHub <ArrowRight size={18} /></a></article>
       </div>

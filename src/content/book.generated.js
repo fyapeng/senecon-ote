@@ -5,9 +5,9 @@ export const volumes = [
     "roman": "Ⅰ",
     "title": "数理基础",
     "english": "Mathematical Foundations",
-    "pages": 753,
-    "size": "3.9 MB",
-    "file": "BOOK_OT_volume_1_mathematical_foundations_v2.1.pdf",
+    "pages": 755,
+    "size": "3.4 MB",
+    "file": "SenEcon-OTE-Volume-1-Mathematical-Foundations-v2.1.pdf",
     "accent": "teal",
     "chapters": [
       {
@@ -145,9 +145,9 @@ export const volumes = [
     "roman": "Ⅱ",
     "title": "微观经济基础",
     "english": "Microeconomic Foundations",
-    "pages": 630,
-    "size": "3.6 MB",
-    "file": "BOOK_OT_volume_2_microeconomic_foundations_v2.1.pdf",
+    "pages": 631,
+    "size": "3.0 MB",
+    "file": "SenEcon-OTE-Volume-2-Microeconomic-Foundations-v2.1.pdf",
     "accent": "copper",
     "chapters": [
       {
@@ -273,9 +273,9 @@ export const volumes = [
     "roman": "Ⅲ",
     "title": "经济学应用",
     "english": "Economic Applications",
-    "pages": 675,
-    "size": "3.9 MB",
-    "file": "BOOK_OT_volume_3_economic_applications_v2.1.pdf",
+    "pages": 678,
+    "size": "3.3 MB",
+    "file": "SenEcon-OTE-Volume-3-Economic-Applications-v2.1.pdf",
     "accent": "blue",
     "chapters": [
       {
@@ -531,4 +531,4 @@ export const codeIndex = [
     "certificateFiles": 2
   }
 ];
-export const bookMeta = {"sourceHash": "bf4851121a42", "prefaceSections": 7, "pages": 2024, "chapters": 25};
+export const bookMeta = {"sourceHash": "bf4851121a42", "prefaceSections": 7, "pages": 2064, "chapters": 25};

@@ -10,5 +10,5 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 - Match the `senecon-see` editorial family: deep teal field, warm paper, gold primary action, serif reading typography, and a restrained academic tone.
 - Present this title as a three-volume set. Use the authoritative first pages of the three compiled PDFs as the visible cover assets; do not collapse them into a generic single-book mockup.
-- Keep the homepage focused on the three-volume structure, the preface reading route, and companion code. Public download buttons must offer only the code package; do not expose PDF, slide, or LaTeX source downloads on the website. Long content belongs on `/preface/` and `/code/`.
+- Keep the homepage focused on the three-volume structure, the preface reading route, textbook PDFs, and companion code. Publish the three versioned volume PDFs from GitHub Releases; do not expose slide or LaTeX source downloads. Long content belongs on `/preface/` and `/code/`.
 - Generate preface HTML and chapter/section metadata one-way from `E:\最优运输理论`; generated website content must not become an independently edited textbook source.

@@ -24,9 +24,9 @@ VOLUME_DEFINITIONS = [
         "title": "数理基础",
         "english": "Mathematical Foundations",
         "range": range(1, 10),
-        "pages": 753,
-        "size": "3.9 MB",
-        "file": "BOOK_OT_volume_1_mathematical_foundations_v2.1.pdf",
+        "pages": 755,
+        "size": "3.4 MB",
+        "file": "SenEcon-OTE-Volume-1-Mathematical-Foundations-v2.1.pdf",
         "accent": "teal",
     },
     {
@@ -35,9 +35,9 @@ VOLUME_DEFINITIONS = [
         "title": "微观经济基础",
         "english": "Microeconomic Foundations",
         "range": range(10, 18),
-        "pages": 630,
-        "size": "3.6 MB",
-        "file": "BOOK_OT_volume_2_microeconomic_foundations_v2.1.pdf",
+        "pages": 631,
+        "size": "3.0 MB",
+        "file": "SenEcon-OTE-Volume-2-Microeconomic-Foundations-v2.1.pdf",
         "accent": "copper",
     },
     {
@@ -46,9 +46,9 @@ VOLUME_DEFINITIONS = [
         "title": "经济学应用",
         "english": "Economic Applications",
         "range": range(18, 26),
-        "pages": 675,
-        "size": "3.9 MB",
-        "file": "BOOK_OT_volume_3_economic_applications_v2.1.pdf",
+        "pages": 678,
+        "size": "3.3 MB",
+        "file": "SenEcon-OTE-Volume-3-Economic-Applications-v2.1.pdf",
         "accent": "blue",
     },
 ]
@@ -227,7 +227,7 @@ def main() -> None:
         "// Generated from the authoritative OTE LaTeX and code directories. Do not edit.\n"
         f"export const volumes = {json.dumps(volumes, ensure_ascii=False, indent=2)};\n"
         f"export const codeIndex = {json.dumps(code_index, ensure_ascii=False, indent=2)};\n"
-        f"export const bookMeta = {json.dumps({'sourceHash': preface_hash, 'prefaceSections': preface_sections, 'pages': 2024, 'chapters': 25}, ensure_ascii=False)};\n"
+        f"export const bookMeta = {json.dumps({'sourceHash': preface_hash, 'prefaceSections': preface_sections, 'pages': 2064, 'chapters': 25}, ensure_ascii=False)};\n"
     )
     (output_dir / "book.generated.js").write_text(module, encoding="utf-8")
     print(f"Exported {sum(len(volume['chapters']) for volume in volumes)} chapters and {len(code_index)} code directories")
