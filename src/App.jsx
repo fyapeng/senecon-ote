@@ -7,6 +7,9 @@ import {
   Notebook,
 } from "@phosphor-icons/react";
 
+const assetUrl = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
+const releaseUrl = (name) => `https://github.com/fyapeng/senecon-ote/releases/download/v2.1/${name}`;
+
 const volumes = [
   {
     number: "I",
@@ -66,8 +69,8 @@ function App() {
           </div>
         </div>
         <div className="hero-book-wrap">
-          <div className="book-halo" aria-hidden="true" />
-          <img className="hero-book" src="/assets/ote-book-mockup.png" alt="《最优运输理论》立体书籍封面" />
+          <div className="book-halo" style={{ backgroundImage: `url(${assetUrl("ote-cover-background.png")})` }} aria-hidden="true" />
+          <img className="hero-book" src={assetUrl("ote-book-mockup.png")} alt="《最优运输理论》立体书籍封面" />
           <p className="book-caption">Mathematics · Economics · Optimal Transport</p>
         </div>
       </section>
@@ -112,7 +115,7 @@ function App() {
           <p className="section-note">免费用于学术阅读、引用与教学</p>
         </div>
         <div className="resource-list">
-          <a className="resource-row resource-primary" href="/downloads/BOOK_OT_complete_electronic_v2.1.pdf" download>
+          <a className="resource-row resource-primary" href={releaseUrl("BOOK_OT_complete_electronic_v2.1.pdf")}>
             <FilePdf size={30} weight="thin" />
             <div><h3>完整电子版</h3><p>Complete PDF · 三部合订版</p></div>
             <span>约 9.6 MB</span><ArrowDown size={19} weight="bold" />
