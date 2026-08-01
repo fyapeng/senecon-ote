@@ -1,0 +1,7 @@
+node_modules
+dist
+.cache
+.slide-work
+preview*.log
+design-qa-*.png
+public/downloads/*.pdf
