@@ -1,6 +1,7 @@
 node_modules
 dist
 .cache
+.npm-cache
 .slide-work
 preview*.log
 design-qa-*.png
