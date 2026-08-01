@@ -100,7 +100,7 @@ function Introduction() {
         <p>最优运输为边际分布、联合结构、匹配、价格与动态路径提供共同语言。本书以数学理论为基础，经由微观配置与制度问题，进入统计、结构估计、宏观分布、空间、金融和稳健决策。</p>
         <a className="text-link" href={`${base}preface/`}>阅读全文与完整目录 <ArrowRight size={18} /></a>
       </div>
-      <div className="introduction-motif"><img src={assetUrl("ote-cover-background.png")} alt="《最优运输理论》运输路径封面图形" /></div>
+      <div className="introduction-motif"><img src={assetUrl("ote-book-mockup.png")} alt="《最优运输理论》完整正面书封" /></div>
     </section>
   );
 }
