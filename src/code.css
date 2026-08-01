@@ -17,7 +17,13 @@
 .certificate-card strong { margin-top: 8px; font-family: "Noto Serif SC", serif; font-size: 24px; }
 .certificate-card p { margin: 15px 0 0; color: rgba(255,255,255,.62); font-size: 12px; line-height: 1.7; }
 .code-intro { display: grid; grid-template-columns: .75fr 1.25fr; gap: 100px; padding: 105px 0 115px; }
-.code-intro > div:last-child p { margin: 0 0 20px; color: #596d69; font-family: "Noto Serif SC", serif; font-size: 16px; line-height: 2; }
+.usage-steps { margin: 0; padding: 0; list-style: none; }
+.usage-steps li { display: grid; grid-template-columns: 48px 1fr; gap: 22px; padding: 0 0 24px; }
+.usage-steps li + li { padding-top: 24px; border-top: 1px solid var(--hairline); }
+.usage-steps > li > span { color: #a47b36; font-family: Georgia, serif; font-size: 14px; letter-spacing: .08em; }
+.usage-steps strong { display: block; font-family: "Noto Serif SC", serif; font-size: 18px; }
+.usage-steps p { margin: 9px 0 0; color: #596d69; font-family: "Noto Serif SC", serif; font-size: 15px; line-height: 1.9; }
+.usage-steps code { padding: 2px 6px; color: #805f2d; background: rgba(210,166,78,.11); font: 13px/1.7 Consolas, monospace; overflow-wrap: anywhere; }
 .certificate-principles { padding: 95px 0 105px; background: var(--deep-soft); color: var(--paper-light); }
 .kicker-light h2 { color: var(--paper-light); }
 .principle-grid { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 52px; border: 1px solid rgba(255,255,255,.13); }

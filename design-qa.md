@@ -1,84 +1,58 @@
-# Design QA
+# Design QA · code-only and pen-name revision
 
-Source visual truth: `C:\Users\ENAN\.codex\generated_images\019fbc25-c295-76c0-9e1f-f8cc82c35745\exec-6f425a58-84cf-47c0-904a-e27c7b6a8252.png` (selected Product Design direction 2).
+Source visual truth:
 
-Implementation screenshot: `E:\senecon-ote\design-qa-implementation.png`.
+- `E:\senecon-ote\public\assets\ote-three-volume-set-v2.png` — final three-volume product image.
+- `C:\Users\ENAN\AppData\Local\Temp\codex-clipboard-acbf11a5-c59f-4787-9d93-f53adb7d98ce.png` — user-marked code-section state to replace.
 
-Comparison evidence: `E:\senecon-ote\design-qa-comparison.png`.
+Rendered implementation:
 
-Viewport: desktop browser default, CSS viewport 1280 × 720; source direction is a 1440px-wide scrollable landing page and was normalized to the same comparison frame. The source is a 1024 × 1536 generated landing-page reference; the implementation capture is a 1280 × 720 first-fold capture. No device-density correction was needed for the browser screenshot. A 390 × 844 responsive check was also run.
+- `E:\senecon-ote\implementation-home-v2-desktop.png`
+- `E:\senecon-ote\implementation-home-v2-mobile.png`
+- `E:\senecon-ote\implementation-code-v2-mobile.png`
 
-State: initial page load, light paper theme, top of page, no interaction opened.
+Comparison evidence: `E:\senecon-ote\design-qa-comparison-v2.png`.
+
+Viewport and normalization: desktop CSS viewport 1280 × 900 and mobile CSS viewport 390 × 844, device scale factor 1. The desktop full-page capture is 1264 × 3578 px; its first 900 px are normalized beside the 1693 × 929 px product source in a 1600 × 940 comparison board. The focused checks use the native hero image and the mobile code-page capture, so no density conversion is required.
+
+State: initial page load, desktop and mobile; mobile navigation closed. Download links were checked in their default state.
 
 ## Findings
 
-No actionable P0, P1, or P2 findings remain.
+No actionable P0, P1, or P2 finding remains.
 
-P3 — The generated book specimen retains a very subtle rectangular paper field around the book. It matches the page background closely and reads as an archival print specimen; it can be refined later with a transparent cutout if a production-ready asset becomes available.
+- P3 — Very small spine typography is necessarily less legible after the three-book image is reduced on mobile. The volume colors and large cover titles still distinguish all three books, so this is acceptable at the current breakpoint.
 
 ## Required fidelity surfaces
 
-- Fonts and typography: Chinese display text uses Noto Serif SC with a Georgia fallback; labels use DM Mono. The implementation preserves the reference's editorial serif hierarchy and restrained mono metadata.
-- Spacing and layout rhythm: the header, two-column hero, section rules, volume rows, resource rows, and footer follow the reference's generous whitespace and thin-divider rhythm.
-- Colors and visual tokens: warm paper background, deep navy text, muted teal accents, and ochre action color are carried through the page.
-- Image quality and asset fidelity: the hero uses a dedicated book specimen asset derived from the selected art direction, plus the existing OTE cover background for atmosphere. No placeholder or CSS-drawn product image is used.
-- Copy and content: the page includes the book title, bilingual subtitle, preface excerpt grounded in `frontmatter/preface.tex`, three-volume organization, PDF download, code description, and author/date information.
+- Fonts and typography: the editorial Chinese serif hierarchy remains consistent across the hero and reading pages; labels and controls retain their compact sans/mono treatment. The author is rendered consistently as `Axel · Sencium` without an affiliation.
+- Spacing and layout rhythm: the desktop hero keeps the two-column composition and gives the thicker three-volume product image sufficient width. Mobile stacks title, actions, and books without overlap or document overflow.
+- Colors and tokens: deep navy-teal, warm paper, ochre actions, and the three volume accent colors remain coherent with the LaTeX covers.
+- Image quality: the hero uses the generated raster product image with visible spines, page blocks, cover thickness, and contact shadows. The individual volume cards use freshly rendered LaTeX cover images. No placeholder or CSS-drawn book art remains.
+- Copy and content: all public download actions say companion code and point to the code-only archive. The code page now explains folder structure, dependency installation, the all-chapter runner, and per-chapter execution. PDF, slides, and LaTeX source downloads are absent.
 
-## Interaction checks
+## Browser and interaction checks
 
-- Navigation anchors for 目录、下载、代码、关于 are present and target the matching sections.
-- The primary complete-PDF link resolves to `/downloads/BOOK_OT_complete_electronic_v2.1.pdf` and the file is included in the project.
-- The mobile viewport check at 390 × 844 reported zero overflowing elements after the book-halo adjustment.
-- Browser console error and warning log: empty.
-- Production build and Sites packaging tests pass.
+- Homepage: hero, three-volume navigation, preface action, code download, mobile layout, and zero horizontal overflow.
+- Code page: `如何使用代码`, three usage steps, 20 chapter entries, two code-only download actions, and zero horizontal overflow.
+- Link audit: zero PDF links and zero source-package links; the release archive returns HTTP 200.
+- Identity audit: homepage, preface, code page, cover fronts, and cover spines show `Axel · Sencium`; repository search finds no real-name or institution string.
+- Console: no browser-rendered runtime error was observed during the checked routes.
+- Production build and all four Sites packaging tests pass.
 
 ## Comparison history
 
-1. Initial comparison found a visible checkerboard background around the generated book image. The book specimen was regenerated with a uniform paper-colored background and the implementation was recaptured.
-2. The revised comparison shows no actionable P0/P1/P2 mismatch. The remaining paper field is classified as P3 polish.
+1. The earlier implementation exposed complete-PDF and full-source downloads and used flat front-cover panels. These were replaced with a single code package, rewritten usage guidance, and a generated three-volume product image with real spine and shadow cues.
+2. The first generated product image retained the previous author line. The LaTeX author metadata and cover variables were updated, all three covers were re-rendered, and the product image was regenerated with only `Axel · Sencium`.
+3. The final combined comparison shows the intended three-volume asset at a strong hero scale with no clipping; no actionable P0/P1/P2 issue remains.
 
 ## Implementation checklist
 
-- [x] Editorial single-page hierarchy
-- [x] Book specimen and cover palette
-- [x] Preface, contents, download, and code sections
-- [x] Responsive mobile layout
-- [x] Complete PDF download entry
-- [x] Browser-rendered first-fold check
-- [x] Production build and Sites packaging check
-
-final result: passed
-
-## Three-volume editorial redesign · 2026-08-02
-
-- Source visual truth: `E:\StructuralEstimation\site\implementation-hero-actions.png`, the published `senecon-see` editorial family selected by the user.
-- Desktop implementation: `E:\senecon-ote\implementation-home-desktop.png`
-- Mobile implementation: `E:\senecon-ote\implementation-home-mobile.png`
-- Preface mobile implementation: `E:\senecon-ote\implementation-preface-mobile.png`
-- Code mobile implementation: `E:\senecon-ote\implementation-code-mobile.png`
-- Same-state comparison: `E:\senecon-ote\design-qa-comparison-redesign.png`
-- Viewports: 1280 × 900 desktop and 390 × 844 mobile, device scale 1. The source and desktop implementation are normalized side by side at their native aspect ratios.
-- State: public top-of-page hero; mobile navigation tested closed and open.
-
-### Findings and comparison history
-
-- Pass 1 adaptation: the source design presented one upright textbook beside a paper curve. OTE requires three visible volumes, so the right-hand product field was intentionally widened and the paper transition was deferred below the 900 px hero. This changes the source proportion but preserves its hierarchy, palette, actions, editorial type, and product-first composition.
-- Post-fix result: three authoritative PDF cover renders are individually legible and overlap as a set without clipping. The hero retains the gold primary action, paper-white reading action, deep-teal field, serif title, restrained metadata, and responsive menu of the source family.
-- No actionable P0, P1, or P2 mismatch remains.
-
-### Required fidelity surfaces
-
-- Fonts and typography: Noto Serif SC carries Chinese display and reading text; the existing sans and Georgia/Iowan-style stacks carry navigation and English metadata. Mobile wrapping remains deliberate and unclipped.
-- Spacing and layout rhythm: desktop uses a two-column hero with a dedicated three-volume stage; mobile stacks copy, actions, and the cover set with zero document overflow.
-- Colors and tokens: deep navy-teal, warm paper, gold, and volume-specific teal/copper/blue accents come directly from the book covers and the sibling site.
-- Image quality and asset fidelity: all three covers are rendered from page 1 of the authoritative compiled PDFs at 1200 px width. No placeholder, CSS-drawn cover, or generic single-book substitute remains.
-- Copy and content: three volumes, 2024 pages, 25 chapters, 753/630/675 page counts, PDF filenames, code coverage for chapters 6–25, and the complete preface are source-grounded.
-
-### Browser and interaction checks
-
-- Homepage: three cover assets, three volume cards, combined-PDF action, responsive menu open/close, and zero overflow.
-- Preface: seven sections, 130 MathJax containers, zero math errors, 25 chapter disclosures, 222 section-level entries, and zero overflow.
-- Code: 20 chapter directories beginning at `code/ch06/`, source-package download, and zero overflow.
-- Production build and four Sites packaging tests pass.
+- [x] Code-only public download policy
+- [x] Practical code usage section
+- [x] Pen name and no institution across site and covers
+- [x] Stronger spines, page thickness, and shadows
+- [x] Desktop and mobile browser checks
+- [x] Production build and packaging tests
 
 final result: passed

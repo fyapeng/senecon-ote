@@ -32,7 +32,7 @@ function useMathJax() {
 }
 
 function Header() {
-  return <header className="reading-header reading-shell"><a href={base}>Axel·Sencium</a><nav aria-label="阅读页导航"><a href={base}>首页</a><a href="#contents">完整目录</a><a href={`${base}code/`}>配套代码</a></nav></header>;
+  return <header className="reading-header reading-shell"><a href={base}>Axel · Sencium</a><nav aria-label="阅读页导航"><a href={base}>首页</a><a href="#contents">完整目录</a><a href={`${base}code/`}>配套代码</a></nav></header>;
 }
 
 function Catalogue() {
